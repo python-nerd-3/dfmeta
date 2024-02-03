@@ -32,7 +32,7 @@ for i in r["blocks"]:
             items.sort(key=(lambda j: j["slot"]))
             tags.sort(key=(lambda j: j["slot"]))
             # below is the longest lambda known to man
-            itemDisps = list(map((lambda j: j["item"]["id"] + " | " +  (j["item"]["data"]["name"] if j["item"]["id"] != "item" else j["item"]["data"]["item"][(j["item"]["data"]["item"].find("id:") + 3):j["item"]["data"]["item"].find(",tag")])), items))
+            itemDisps = list(map((lambda j: j["item"]["id"] + " | " +  str(j["item"]["data"] if j["item"]["id"] != "item" else j["item"]["data"]["item"][(j["item"]["data"]["item"].find("id:") + 3):j["item"]["data"]["item"].find(",tag")])), items))
             tagDisps = list(map(lambda j: j["item"]["data"]["tag"] + ": " + j["item"]["data"]["option"], tags))
             itemDisps = str(itemDisps).replace("'", "")
             if len(tagDisps) == 0:
